@@ -72,7 +72,7 @@ navBarList.appendChild(createNavList());
 function makeActive() {
     for (const section of sections) {
         const box = section.getBoundingClientRect();
-        
+
         if (box.top <= 150 && box.bottom >= 150) {
             //apply active state on current section and corresponding Nav link
             section.classList.add("active__section");
@@ -93,7 +93,13 @@ function makeActive() {
 
 document.addEventListener("scroll", makeActive);
 // Scroll to anchor ID using scrollTO event
-
+navBarList.addEventListener('click', function (event) {
+    event.preventDefault();
+    const destination = event.target.getAttribute("href");
+    document.querySelector(destination).scrollIntoView({
+        behavior: 'smooth'
+    });
+});
 
 /**
  * End Main Functions
