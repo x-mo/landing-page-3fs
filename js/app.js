@@ -24,28 +24,22 @@
 */
 const navBarList = document.getElementById('navbar__list');
 const sections = document.getElementsByTagName('section');
-const navItemNames = extractSectionNavNames();
-const sectionIds = extractSectionIds();
+const sectionsData = extractSectionsData();
 
 /**
  * End Global Variables
  * Start Helper Functions
  * 
 */
-function extractSectionNavNames() {
-    const sectionNavNames = [];
+function extractSectionsData() {
+    const sectionData = [];
     for (let section of sections) {
-        sectionNavNames.push(section.dataset.nav);
+        sectionData.push({
+            id: section.id,
+            label: section.dataset.nav
+        });
     }
-    return sectionNavNames;
-}
-
-function extractSectionIds() {
-    const sectionIds = [];
-    for (let section of sections) {
-        sectionIds.push(section.id);
-    }
-    return sectionIds;
+    return sectionData;
 }
 
 /**
@@ -56,8 +50,8 @@ function extractSectionIds() {
 
 function createNavList() {
     const documentFragment = document.createDocumentFragment();
-    navItemNames.forEach(function (name) {
-        documentFragment.appendChild(createNavListItem(name));
+    sectionsData.forEach(function (sectionData) {
+        documentFragment.appendChild(createNavListItem(sectionData.label));
     })
     return documentFragment;
 }
