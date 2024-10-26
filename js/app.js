@@ -56,8 +56,11 @@ function createNavList() {
 
 function createNavListItem(itemName) {
     const li = document.createElement('li');
-    li.textContent = itemName;
-    li.classList.add("menu__link");
+    const a = document.createElement('a');
+    //a.setAttribute("href", "#section");
+    a.textContent = itemName;
+    a.classList.add("menu__link");
+    li.appendChild(a);
     return li;
 }
 // build the nav
