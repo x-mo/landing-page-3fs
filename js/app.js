@@ -22,14 +22,22 @@
  * Define Global Variables
  * 
 */
-
+const navBarList = document.getElementById('navbar__list');
+const sections = document.getElementsByTagName('section');
+const navItemNames = extractSectionNavNames();
 
 /**
  * End Global Variables
  * Start Helper Functions
  * 
 */
-
+function extractSectionNavNames() {
+    const sectionNavNames = []
+    for (let section of sections){
+        sectionNavNames.push(section.dataset.nav);
+    }
+    return sectionNavNames;
+}
 
 
 /**
