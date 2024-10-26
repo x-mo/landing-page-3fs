@@ -33,7 +33,7 @@ const navItemNames = extractSectionNavNames();
 */
 function extractSectionNavNames() {
     const sectionNavNames = []
-    for (let section of sections){
+    for (let section of sections) {
         sectionNavNames.push(section.dataset.nav);
     }
     return sectionNavNames;
@@ -46,8 +46,22 @@ function extractSectionNavNames() {
  * 
 */
 
-// build the nav
+function createNavList() {
+    const documentFragment = document.createDocumentFragment();
+    navItemNames.forEach(function (name) {
+        documentFragment.appendChild(createNavListItem(name));
+    })
+    return documentFragment;
+}
 
+function createNavListItem(itemName) {
+    const li = document.createElement('li');
+    li.textContent = itemName;
+    li.classList.add("menu__link");
+    return li;
+}
+// build the nav
+navBarList.appendChild(createNavList());
 
 // Add class 'active' to section when near top of viewport
 
@@ -58,7 +72,7 @@ function extractSectionNavNames() {
 /**
  * End Main Functions
  * Begin Events
- * 
+ *
 */
 
 // Build menu 
