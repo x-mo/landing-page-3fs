@@ -10,7 +10,7 @@ https://awad-landing-page-project.netlify.app
 ## Installation
 - Clone this repository
 ```
-git clone https://github.com/x-mo/personal-blog-website-3fs.git
+git clone https://github.com/x-mo/landing-page-3fs.git
 ```
 
 ## Usage
