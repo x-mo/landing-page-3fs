@@ -33,7 +33,7 @@ const sectionsData = extractSectionsData();
 */
 function extractSectionsData() {
     const sectionData = [];
-    for (let section of sections) {
+    for (const section of sections) {
         sectionData.push({
             id: section.id,
             label: section.dataset.nav
@@ -48,6 +48,7 @@ function extractSectionsData() {
  * 
 */
 
+// build the nav
 function createNavList() {
     const documentFragment = document.createDocumentFragment();
     sectionsData.forEach(function (sectionData) {
@@ -65,8 +66,6 @@ function createNavListItem(sectionData) {
     li.appendChild(a);
     return li;
 }
-// build the nav
-navBarList.appendChild(createNavList());
 
 // Add class 'active' to section when near top of viewport
 function makeActive() {
@@ -91,15 +90,12 @@ function makeActive() {
     }
 }
 
-document.addEventListener("scroll", makeActive);
 // Scroll to anchor ID using scrollTO event
-navBarList.addEventListener('click', function (event) {
-    event.preventDefault();
-    const destination = event.target.getAttribute("href");
+function smoothScrollToSection(destination) {
     document.querySelector(destination).scrollIntoView({
         behavior: 'smooth'
     });
-});
+}
 
 /**
  * End Main Functions
@@ -108,9 +104,12 @@ navBarList.addEventListener('click', function (event) {
 */
 
 // Build menu 
+navBarList.appendChild(createNavList());
 
 // Scroll to section on link click
-
+navBarList.addEventListener('click', function (event) {
+    event.preventDefault();
+    smoothScrollToSection(event.target.getAttribute("href"));
+});
 // Set sections as active
-
-
+document.addEventListener("scroll", makeActive);
