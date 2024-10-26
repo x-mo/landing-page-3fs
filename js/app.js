@@ -51,16 +51,16 @@ function extractSectionsData() {
 function createNavList() {
     const documentFragment = document.createDocumentFragment();
     sectionsData.forEach(function (sectionData) {
-        documentFragment.appendChild(createNavListItem(sectionData.label));
+        documentFragment.appendChild(createNavListItem(sectionData));
     })
     return documentFragment;
 }
 
-function createNavListItem(itemName) {
+function createNavListItem(sectionData) {
     const li = document.createElement('li');
     const a = document.createElement('a');
-    //a.setAttribute("href", "#section");
-    a.textContent = itemName;
+    a.setAttribute("href", `#${sectionData.id}`);
+    a.textContent = sectionData.label;
     a.classList.add("menu__link");
     li.appendChild(a);
     return li;
