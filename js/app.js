@@ -25,6 +25,7 @@
 const navBarList = document.getElementById('navbar__list');
 const sections = document.getElementsByTagName('section');
 const navItemNames = extractSectionNavNames();
+const sectionIds = extractSectionIds();
 
 /**
  * End Global Variables
@@ -32,13 +33,20 @@ const navItemNames = extractSectionNavNames();
  * 
 */
 function extractSectionNavNames() {
-    const sectionNavNames = []
+    const sectionNavNames = [];
     for (let section of sections) {
         sectionNavNames.push(section.dataset.nav);
     }
     return sectionNavNames;
 }
 
+function extractSectionIds() {
+    const sectionIds = [];
+    for (let section of sections) {
+        sectionIds.push(section.id);
+    }
+    return sectionIds;
+}
 
 /**
  * End Helper Functions
