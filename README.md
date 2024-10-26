@@ -1,9 +1,17 @@
 # Landing Page Project
 
-## Instructions
+## Description
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+Built upon Udacity's Landing Page starter project, this project adds JavaScript to the static HTML and CSS template to provide a top navigation bar. This addition helps users smoothly navigate to different sections of the page, primarily showcasing JavaScript's capabilities to transform a static website into an interactive one.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Demo
+https://awad-landing-page-project.netlify.app
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+## Installation
+- Clone this repository
+```
+git clone https://github.com/x-mo/personal-blog-website-3fs.git
+```
+
+## Usage
+- Open the index.html file in your preferred browser and you're ready to go
