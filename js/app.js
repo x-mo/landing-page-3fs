@@ -69,8 +69,29 @@ function createNavListItem(sectionData) {
 navBarList.appendChild(createNavList());
 
 // Add class 'active' to section when near top of viewport
+function makeActive() {
+    for (const section of sections) {
+        const box = section.getBoundingClientRect();
+        
+        if (box.top <= 150 && box.bottom >= 150) {
+            //apply active state on current section and corresponding Nav link
+            section.classList.add("active__section");
+            navBarList.childNodes.forEach(function (navItem) {
+                if (navItem.textContent === section.dataset.nav)
+                    navItem.classList.add("active__item")
+            });
+        } else {
+            //Remove active state from other section and corresponding Nav link
+            section.classList.remove("active__section");
+            navBarList.childNodes.forEach(function (navItem) {
+                if (navItem.textContent === section.dataset.nav)
+                    navItem.classList.remove("active__item")
+            });
+        }
+    }
+}
 
-
+document.addEventListener("scroll", makeActive);
 // Scroll to anchor ID using scrollTO event
 
 
